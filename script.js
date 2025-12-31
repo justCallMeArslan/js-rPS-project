@@ -94,8 +94,3 @@ playGame();
 
 
 
-// create variables for soring number of rounds and maximum required number or rounds
-// create loop thath will run until msximum reuqired numbers of rounds played
-// add inccrement of rounds at the end of each round
-// add increment on every win/lose to ifs
-// 
