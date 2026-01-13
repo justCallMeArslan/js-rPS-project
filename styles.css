@@ -1,0 +1,27 @@
+body {
+    color: white;
+    font-size: 21px;
+}
+
+.totalScore {
+    display: flex;
+    gap: 5px;
+    padding: 40px 0 40px 0;
+
+}
+
+.game {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+button {
+    font-size: 25px;
+}
