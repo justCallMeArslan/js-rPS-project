@@ -81,6 +81,11 @@ function updateScore() {
     humanCount.textContent = `: ${humanScore} Human score`;
 }
 
+function updateChoice(){
+    // left for the update after merge
+}
+
+
 function restart(){
 document.addEventListener("click", () => {
     window.location.reload();
