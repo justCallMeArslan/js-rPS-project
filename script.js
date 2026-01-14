@@ -37,22 +37,23 @@ buttons.forEach(button => {
 
 function playRound(computerChoice, humanChoice) {
 
+
+    if (computerChoice === humanChoice){
+        return;
+    }
     if (computerChoice === "rock" && humanChoice === "scissors") { // check for Computer-Rock combo
         computerScore++;
     } else if (computerChoice === "rock" && humanChoice === "paper") {
         humanScore++;
-    } else if (computerChoice === "rock" && humanChoice === "rock") {
     }
 
     if (computerChoice === "paper" && humanChoice === "scissors") { // check for Computer-Paper combo
         humanScore++;
-    } else if (computerChoice === "paper" && humanChoice === "paper") {
-    } else if (computerChoice === "paper" && humanChoice === "rock") {
+    }  else if (computerChoice === "paper" && humanChoice === "rock") {
         computerScore++;
     }
 
-    if (computerChoice === "scissors" && humanChoice === "scissors") { //check for Computer-Scissors combo
-    } else if (computerChoice === "scissors" && humanChoice === "paper") {
+    if (computerChoice === "scissors" && humanChoice === "paper") { //check for Computer-Scissors combo
         computerScore++;
     } else if (computerChoice === "scissors" && humanChoice === "rock") {
         humanScore++;
@@ -87,7 +88,7 @@ function checkGameResult() {
     buttons.forEach(button => button.disabled = true);
     toggleDiv();
 
-    alert(computerScore === 5 ? `Computer WINS. Try again, ${humanName}`
+    alert(computerScore === 5 ? `Computer WINS. Try again, ${humanName}!`
         : `${humanName} WINS. Don't relax, it was pure luck!`
     )
 };
