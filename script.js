@@ -1,3 +1,13 @@
+const humanName = prompt("Whats your name, Human?");
+const changeGamer = document.querySelector("h1");
+changeGamer.textContent = `Test your luck, ${humanName}!`;
+
+const changeHumanChoice = document.querySelector(".showHumanChoice");
+changeHumanChoice.textContent = `${humanName}'s choice`;
+
+const changeHumanScore = document.querySelector(".humanScore");
+changeHumanScore.textContent = `0 ${humanName}'s score`
+
 function getComputerChoice() {
     const computerChoice = Math.floor(Math.random() * 3);
 
@@ -10,7 +20,6 @@ function getComputerChoice() {
     }
 }
 
-
 let computerScore = 0;
 let humanScore = 0;
 
@@ -19,28 +28,27 @@ const buttons = document.querySelectorAll("button");
 buttons.forEach(button => {
     button.addEventListener("click", (e) => {
         let humanSelection = e.currentTarget.id;
-        const computerSelection = getComputerChoice(); // easier to log
+        const computerSelection = getComputerChoice();
 
         playRound(computerSelection, humanSelection);
         updateScore();
+        updateChoiceComp(computerSelection);
+        updateChoiceHuman(humanSelection);
 
         if (computerScore === 5 || humanScore === 5) {
             buttons.forEach(button => {
                 button.disabled = true;
+                toggleDiv();
                 restart();
-            })
+            });
             if (computerScore === 5) {
                 alert("Computer WINS!");
             } else if (humanScore === 5) {
-                alert("Human WINS");
+                alert(`${humanName} WINS`);
             } else {
-                alert("It is a TIE");   
+                alert("It is a TIE");
             }
-        }
-
-        
-
-
+        };
     });
 });
 
@@ -78,17 +86,38 @@ function updateScore() {
     const computerCount = document.querySelector(".computerScore");
     computerCount.textContent = `Computer score ${computerScore}`;
     const humanCount = document.querySelector(".humanScore");
-    humanCount.textContent = `: ${humanScore} Human score`;
+    humanCount.textContent = ` ${humanScore} ${humanName}'s score`;
 }
 
-function updateChoice(){
-    // left for the update after merge
+const choiceOfEmojis = {
+    rock: "✊",
+    paper: "✋",
+    scissors: "✌️"
 }
 
-
-function restart(){
-document.addEventListener("click", () => {
-    window.location.reload();
-});
-
+function updateChoiceComp(computerChoice) {
+    const showChoiceComp = document.querySelector(".showCompChoice");
+    const emojiForCompChoice = choiceOfEmojis[computerChoice];
+    showChoiceComp.textContent = `Computer choice is ${emojiForCompChoice}`;
 };
+
+function updateChoiceHuman(humanChoice) {
+    const showChoiceHuman = document.querySelector(".showHumanChoice");
+    const emojiForHumanChoice = choiceOfEmojis[humanChoice];
+    showChoiceHuman.textContent = ` ${emojiForHumanChoice} is ${humanName}'s choice`;   
+};
+
+function toggleDiv() {
+    const restartDiv = document.querySelector("#divToHide");
+    restartDiv.classList.toggle("visible-div");
+};
+
+function restart() {
+    const restart = document.querySelector("#divToHide")
+    restart.addEventListener("click", () => {
+        window.location.reload();
+    });
+};
+
+
+

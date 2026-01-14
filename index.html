@@ -12,32 +12,41 @@
 
 <body style="background-color: black;">
 
-
-
-
-
     <div class="game">
-        <p>Test your luck, human!</p>
+        <h1>Test your luck, Human!</h1>
 
+        <div class="showChoices">
+            <div>
+                <p class="showCompChoice"> Computer choice </p>
+            </div>
+            <div>
+                <p> : </p>
+            </div>
+            <div>
+                <p class="showHumanChoice"> Human choice </p>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button id="rock">Rock ✊</button>
+            <button id="paper">Paper ✋</button>
+            <button id="scissors">Scissors ✌️</button>
+        </div>
 
         <div class="totalScore">
-
-            <div class="computerScore">
-                <p> Computer choice </p>
-                <p> Computer score 0 </p>
+            <div>
+                <p class="computerScore"> Computer score 0 </p>
             </div>
-
-            <div class="humanScore">
-                <p> Human choice </p>
-                <p>: 0 Human score </p>
+              <div>
+                <p> : </p>
+            </div>
+            <div>
+                <p class="humanScore">: 0 Human score </p>
             </div>
         </div>
     </div>
-    <div class="buttons">
-        <button id="rock">Rock ✊</button>
-        <button id="paper">Paper ✋</button>
-        <button id="scissors">Scissors ✋</button>
-
+    <div id="divToHide" class="hidden-div">
+        <p>Click <b>HERE</b> to restart!</p>
     </div>
 
 </body>
