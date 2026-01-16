@@ -1,3 +1,4 @@
+// DOM references section
 const restartDiv = document.querySelector("#divToHide");
 const showChoiceComp = document.querySelector(".showCompChoice");
 const showChoiceHuman = document.querySelector(".showHumanChoice");
@@ -19,8 +20,9 @@ function getComputerChoice() {
 let computerScore = 0;
 let humanScore = 0;
 
-const buttons = document.querySelectorAll("button");
+//main logic section
 
+const buttons = document.querySelectorAll("button");
 buttons.forEach(button => {
     button.addEventListener("click", (e) => {
         let humanSelection = e.currentTarget.id;
@@ -35,8 +37,9 @@ buttons.forEach(button => {
     });
 });
 
-function playRound(computerChoice, humanChoice) {
+// conditionals need to be refactored
 
+function playRound(computerChoice, humanChoice) {
 
     if (computerChoice === humanChoice){
         return;
